@@ -1,22 +1,36 @@
 .App-logo {
-  height: 8vh;
   background-color: #262626;
-  margin-left: 1%
+  margin-left: 1%;
+  height: 65px;
 }
 
 .App-navbar {
   background-color: #262626;
+  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+li {
+  display: inline-block;
+  list-style-type: none;
+  padding:8px 0 0 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu {
+  float: right;
+  margin-right: 4vh;
+}
+
+.Introduce {
+  margin: 5vh 0 0 5vh;
+}
+
+.Logo {
+  height: 200px;
+  float: left;
+}
+
+.Introduce-text {
+  margin: 3vh 0 0 2vh;
+  width: 50%;
+  height: 2300px;
 }
