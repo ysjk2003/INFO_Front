@@ -2,65 +2,7 @@ body {
   background-color: #1f1f1f;
 }
 
-.App-logo {
-  background-color: #262626;
-  margin: 0 0 0 1%;
-  height: 65px;
-}
-
-.App-navbar {
-  background-color: #262626;
-  color: white;
-}
-
-li {
-  display: inline-block;
-  list-style-type: none;
-  padding:8px 0 0 20px;
-}
-
 a {
   color: white;
   text-decoration: none;
-}
-
-.menu {
-  float: right;
-  margin-right: 4vh;
-}
-
-.Introduce {
-  margin: 5vh 0 0 5vh;
-}
-
-.Logo {
-  height: 200px;
-  float: left;
-  margin: 0 0 0 35vh;
-}
-
-.Introduce-club {
-  height: 200px;
-  width: 30%;
-  margin-left: 650px;
-  color: rgb(134, 133, 133);
-}
-
-.Introduce-title {
-  color: white;
-}
-
-.Introduce-member {
-  color: rgb(134, 133, 133);
-  float: left;
-  width: 25%;
-  text-align: center;
-  margin-left: 35vh;
-}
-
-.Introduce-history {
-  color: rgb(134, 133, 133);
-  text-align: center;
-  float: left;
-  margin-left: 30vh;
 }

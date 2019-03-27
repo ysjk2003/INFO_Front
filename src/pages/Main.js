@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import info from 'info.png';
 import Member from 'pages/Member';
 import Nav from 'pages/Nav';
+import './Main.css'
 
 class Main extends Component {
   render() {

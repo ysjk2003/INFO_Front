@@ -1,0 +1,21 @@
+.App-navbar {
+    background-color: #262626;
+    color: white;
+}
+
+.App-logo {
+    background-color: #262626;
+    margin: 0 0 0 1%;
+    height: 65px;
+}
+
+li {
+    display: inline-block;
+    list-style-type: none;
+    padding:8px 0 0 20px;
+}
+
+.menu {
+    float: right;
+    margin-right: 4vh;
+}
