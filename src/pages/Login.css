@@ -26,3 +26,14 @@ h2 {
     color: white;
     width: 110%;
 }
+
+.Regist-submit {
+    display: table;
+    margin: 10% auto;
+    font-size: 25px;
+    border: 0;
+    background-color: rgb(134, 133, 133);
+    height: 40px;
+    color: white;
+    width: 110%;
+}

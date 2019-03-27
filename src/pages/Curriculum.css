@@ -1,0 +1,21 @@
+.C {
+    display: inline;
+    margin-right: auto;
+}
+
+.Python {
+    display: inline;
+}
+
+.Network {
+    display: inline;
+    margin-left: auto;
+}
+
+.Sub {
+    text-align: center;
+}
+
+img {
+    margin: 30vh 5% 0 5%;
+}

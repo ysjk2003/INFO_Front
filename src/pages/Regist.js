@@ -6,6 +6,15 @@ class Regist extends Component {
         return (
             <div>
                 <Nav />
+                <div className="Login">
+                    <h2>회원가입</h2>
+                    <form>
+                        <input type="text" className="Login-box" placeholder="ID" required></input><br/>
+                        <input type="text" className="Login-box" placeholder="Password" required></input><br/>
+                        <input type="text" className="Login-box" placeholder="Name"></input>
+                        <button type="submit" className="Regist-submit">Regist</button>
+                    </form>
+                </div>
             </div>
         );
     };

@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 class Login extends Component {
     render() {
+        const style = {
+            'text-align': 'center'
+        }
         return (
             <div>
                 <Nav />
@@ -13,7 +16,7 @@ class Login extends Component {
                     <form>
                         <input type="text" className="Login-box" placeholder="ID" required></input><br/>
                         <input type="text" className="Login-box" placeholder="Password" required></input>
-                        <p><Link to="/regist">회원가입</Link></p>
+                        <p style={style}><Link to="/regist">회원가입</Link></p>
                         <button type="submit" className="Login-submit">Login</button>
                     </form>
                 </div>
