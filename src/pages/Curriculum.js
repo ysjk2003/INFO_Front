@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Nav from 'pages/Nav'
-import c from 'c.png';
-import network from 'network.png';
-import python from 'python.png';
-import './Curriculum.css'
+import c from 'resource/c.png';
+import network from 'resource/network.png';
+import python from 'resource/python.png';
+import './Curriculum.css';
+import { Link } from 'react-router-dom';
 
 class Curriculum extends Component {
     render() {
@@ -12,13 +13,13 @@ class Curriculum extends Component {
                 <Nav />
                 <div className="Sub">
                     <div className="C">
-                        <img src={c}/>
+                        <Link to="/curriculum/c"><img src={c}/></Link>
                     </div>
                     <div className='Python'>
-                        <img src={python}/>
+                        <Link to="/curriculum/python"><img src={python}/></Link>
                     </div>
                     <div className="Network">
-                        <img src={network}/>
+                        <Link to="/curriculum/network"><img src={network}/></Link>
                     </div>
                 </div>
             </div>
