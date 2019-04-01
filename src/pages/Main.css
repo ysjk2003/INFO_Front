@@ -1,35 +1,41 @@
 .Introduce {
     margin: 5vh 0 0 5vh;
-}
-
-.Introduce-club {
-    height: 200px;
-    width: 30%;
-    margin-left: 650px;
-    color: rgb(134, 133, 133);
+    display: flex;
+    flex-direction: column;
 }
 
 .Introduce-title {
     color: white;
 }
-  
-  .Introduce-member {
+
+.Introduce-club { 
     color: rgb(134, 133, 133);
-    float: left;
-    width: 25%;
-    text-align: center;
-    margin-left: 35vh;
+    padding: 0 45vh 0 39vh;
+}  
+
+.Introduce-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
 }
 
-  .Introduce-history {
+.Introduce-member {
     color: rgb(134, 133, 133);
     text-align: center;
-    float: left;
-    margin-left: 30vh;
+    margin-right: 39vh;
+}
+
+.Introduce-history {
+    color: rgb(134, 133, 133);
+    text-align: center;
 }
 
 .Logo {
     height: 200px;
     float: left;
-    margin: 0 0 0 35vh;
+    margin: 0;
+}
+
+#Club-title {
+    padding-top:1%;
 }

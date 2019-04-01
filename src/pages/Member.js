@@ -25,6 +25,11 @@ class Member extends Component {
             },
             {
                 id: 1,
+                number: '30402',
+                name: '김민규',
+            },
+            {
+                id: 1,
                 number: '30405',
                 name: '박보현'
             },
@@ -32,6 +37,11 @@ class Member extends Component {
                 id: 1,
                 number: '20401',
                 name: '김경민'
+            },
+            {
+                id: 1,
+                number: '20418',
+                name: '최지웅'
             }
         ]
     }
