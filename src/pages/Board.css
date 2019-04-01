@@ -1,12 +1,26 @@
 .Category {
-    width: 200px;
+    width: 14rem;
     border-right: 2px solid white;
     color: white;
+    padding-left: 1rem;
+}
+
+.Board {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+}
+
+.Board-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0 5rem 0 5rem;
 }
 
 .Main {
-    display: flex;
-    flex-direction: column;
+    width: calc(100% - 15rem);
+    padding: 0 1rem 0 1rem;
 }
 
 .Title {
@@ -15,4 +29,15 @@
 
 .Text {
     color: #b2b2b2;
+}
+
+.Create-Button {
+    display: table;
+    font-size: 1rem;
+    border: 0;
+    background-color: rgb(134, 133, 133);
+    height: 2rem;
+    color: white;
+    width: 5rem;
+    margin-right: 1rem;
 }
