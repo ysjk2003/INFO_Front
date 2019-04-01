@@ -16,7 +16,7 @@ class Assignment extends Component {
                         <option value="Network">Network</option>
                     </select>
                     <from>
-                        <input type="text" className="Title" placeholder="제목" required></input><br/>
+                        <input type="text" className="Subject" placeholder="제목" required></input><br/>
                         <input type="file" className="File" required></input><br/>
                         <input type="submit" className="Submit-button"></input>
                     </from>

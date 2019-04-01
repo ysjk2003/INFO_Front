@@ -1,0 +1,18 @@
+.Category {
+    width: 200px;
+    border-right: 2px solid white;
+    color: white;
+}
+
+.Main {
+    display: flex;
+    flex-direction: column;
+}
+
+.Title {
+    color: white;
+}
+
+.Text {
+    color: #b2b2b2;
+}
