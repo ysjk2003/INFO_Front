@@ -1,7 +1,8 @@
 .Introduce {
-    margin: 5vh 0 0 5vh;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    margin-top: 1%;
 }
 
 .Introduce-title {
@@ -9,8 +10,10 @@
 }
 
 .Introduce-club { 
+    width: 650px;
+    justify-content: center;
     color: rgb(134, 133, 133);
-    padding: 0 45vh 0 39vh;
+    display: flex;
 }  
 
 .Introduce-wrapper {
@@ -31,11 +34,43 @@
 }
 
 .Logo {
-    height: 200px;
-    float: left;
-    margin: 0;
+    height: 10rem;
+    margin: 0 50px 0 0;
+}
+
+.Introduce-description {
+    margin-left: 1%;
 }
 
 #Club-title {
     padding-top:1%;
+}
+
+@media screen and (max-width:767px){
+    .Introduce-member {
+        margin: 0;
+    }
+
+    .Introduce-club{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Introduce-description {
+        text-align: center;
+    }
+
+    .Introduce-wrapper {
+        display: block;
+    }
+
+    .Logo {
+        margin: 0;
+    }
+
+    .menu {
+        display: none;
+    }
 }
