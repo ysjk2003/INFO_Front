@@ -7,7 +7,7 @@
 .App-logo {
     background-color: #262626;
     margin: 0 0 0 1%;
-    height: 65px;
+    height: 4rem;
 }
 
 li {
@@ -20,4 +20,47 @@ li {
     float: right;
     margin-right: 4vh;
     margin-top: 0.5%;
+}
+
+.Menu-image {
+    display: none;
+}
+
+@media (max-width: 767px){
+    
+    .Menu-image {
+        display: block;
+        float: right;
+        margin: 1.2rem;
+        width: 2rem;
+    }
+
+    #toggle {
+        display: none;
+    }
+
+    #toggle:checked ~ .menu{display: inline;}
+
+    .menu {
+        background: rgb(109,109,109);
+        position: absolute;
+        right: 0;
+        margin: 0;
+        width: 100%;
+        display: none;
+        top: 4rem;
+    }
+
+    .menu ul li {
+        display: block;
+        text-align: center;
+    }
+
+    #nav {
+        padding: 0;
+    }
+
+    li {
+        padding: 0;
+    }
 }

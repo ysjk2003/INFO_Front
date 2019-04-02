@@ -2,6 +2,7 @@
     display: table;
     width: 300px;
     margin: 20vh auto;
+    color: white;
 }
 
 .Submit-button {
@@ -23,12 +24,15 @@
     width: 70%;
     margin: auto;
     border: 0;
+    color: white;
 }
 
 .Select {
     float: left;
+    color: white;
 }
 
 .File {
     margin: auto;
+    color: white;
 }

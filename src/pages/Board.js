@@ -4,7 +4,19 @@ import './Board.css'
 import { Link } from 'react-router-dom';
 
 class Board extends Component {
+    state = {
+        title : [
+            "What is C?",
+            "What is Complier?"
+        ]
+    }
+
     render() {
+        const { title } = this.state;
+
+        const titlelist = title.map( title => (
+            (<p>{title}</p>)
+        ));
         return (
             <div>
                 <Nav />
@@ -12,7 +24,7 @@ class Board extends Component {
                     <div className="Board">
                         <div className="Category">
                             <h2>Chapter 1</h2>
-                            <p>What is C?</p>
+                            <p>{ titlelist }</p>
                         </div>
                         <div className="Main">
                             <h1 className="Title">Title</h1>
