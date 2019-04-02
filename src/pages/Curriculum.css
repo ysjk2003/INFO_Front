@@ -1,6 +1,7 @@
 .C {
     display: inline;
-    margin-right: auto;
+    margin-right: 8rem;
+    
 }
 
 .Python {
@@ -9,24 +10,26 @@
 
 .Network {
     display: inline;
-    margin-left: auto;
+    margin-left: 8rem;
 }
 
 .Sub {
     text-align: center;
-}
-
-img {
-    margin: 30vh 5% 0 5%;
+    margin-top: 13rem;
 }
 
 @media (max-width:767px) {
     .Sub {
         display: flex;
         flex-direction: column;
+        margin-top: 0;
     }
 
     .C, .Network {
         margin: 0;
+    }
+
+    .C, .Python {
+        margin-bottom: 5rem;
     }
 }

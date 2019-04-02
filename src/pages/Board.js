@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from 'pages/Nav';
 import './Board.css'
+import { Link } from 'react-router-dom';
 
 class Board extends Component {
     render() {
@@ -23,7 +24,7 @@ class Board extends Component {
                             software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         </div>
                     </div>
-                    <button type="submit" className="Create-Button">글쓰기</button>
+                    <Link to="/Posting"><button type="submit" className="Create-Button">글쓰기</button></Link>
                 </div>
             </div>
         );

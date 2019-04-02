@@ -1,0 +1,34 @@
+.editor-class {
+    height: 30rem !important;
+    background-color: white;
+    border: 0.2rem solid gray;
+}
+
+.wrapper-editor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    width: 100%;
+}
+
+.Save {
+    display: table;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    border: 0;
+    background-color: rgb(134, 133, 133);
+    height: 2rem;
+    color: white;
+    width: 4rem;
+    margin-top: 1rem;
+}
+
+.rdw-editor-wrapper {
+    width: 70rem;
+    margin-top: 3rem;
+}
+
+.rdw-dropdown-selectedtext {
+    color: black;
+}
