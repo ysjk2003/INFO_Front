@@ -26,6 +26,10 @@ li {
     display: none;
 }
 
+#toggle {
+    display: none;
+}
+
 @media (max-width: 767px){
     
     .Menu-image {
@@ -42,18 +46,20 @@ li {
     #toggle:checked ~ .menu{display: inline;}
 
     .menu {
-        background: rgb(109,109,109);
+        background: #262626;
         position: absolute;
         right: 0;
         margin: 0;
         width: 100%;
         display: none;
         top: 4rem;
+        border-top: 0.1rem solid white;
     }
 
     .menu ul li {
         display: block;
         text-align: center;
+        margin: 1rem;
     }
 
     #nav {

@@ -36,7 +36,10 @@ class Board extends Component {
                             software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         </div>
                     </div>
-                    <Link to="/Posting"><button type="submit" className="Create-Button">글쓰기</button></Link>
+                    <div className="Buttons">
+                        <Link to="/Posting"><button type="submit" className="Create-Button">글쓰기</button></Link>
+                        <button type="submit" className="Modify-button">수정</button>
+                    </div>
                 </div>
             </div>
         );

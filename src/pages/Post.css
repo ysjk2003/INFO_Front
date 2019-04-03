@@ -27,9 +27,16 @@
 
 .rdw-editor-wrapper {
     width: 70rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .rdw-dropdown-selectedtext {
     color: black;
+}
+
+.Post-title {
+    font-size: 1rem;
+    margin-top: 2rem;
+    padding: 10px;
+    width: 68rem;
 }
