@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
 import Nav from "pages/Nav";
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 class Login extends Component {
@@ -12,17 +12,32 @@ class Login extends Component {
 
     state = {
         id: '',
-        password: ''
+        password: '',
+        isLogin : false
     }
 
-    onClick() {
-        axios.post('10.156.146.148:5000/account/login', {
-            id: this.state.id, password: this.state.password
-        })
-        .then(response => {
-            alert(response);
-        })
-        .catch(alert("다시 시도해 주세여.."))
+    async onClick (e) {
+        e.preventDefault();
+        if (this.state.id === ''){ 
+            alert("아이디를 입력하세요")
+        }
+        else if (this.state.password === '') {
+            alert("비밀번호를 입력하세요")
+        }
+        else {
+            try {
+                const response = await axios.post('http://info.dsmhs.kr:5000/account/login', {
+                    id: this.state.id, pw: this.state.password
+                })
+                alert('로그인 성공')
+                this.state.isLogin = true
+                console.log(response)
+                this.props.history.push('/')
+            }
+            catch (err) {
+                alert('로그인 실패')
+            }
+        }
     }
 
     handleChange = (e) => {
@@ -50,4 +65,4 @@ class Login extends Component {
     };
 }
 
-export default Login;
+export default withRouter(Login);
