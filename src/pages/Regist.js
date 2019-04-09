@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from 'pages/Nav';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class Regist extends Component {
     constructor() {
@@ -14,14 +15,29 @@ class Regist extends Component {
         name: ''
     }
 
-    onClick() {
-        axios.post('/register', {
-            id: this.state.id, password: this.state.password, name: this.state.name
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(alert("다시 시도해 주세요.."))
+    async onClick(e) {
+        e.preventDefault();
+        if (this.state.id == '') {
+            alert("아이디를 입력하세요")
+        }
+        else if (this.state.password == '') {
+            alert("패스워드를 입력하세요")
+        }
+        else if (this.state.name == '') {
+            alert("이름을 입력하세요")
+        }
+        else {
+            try {
+                await axios.post('http://info.dsmhs.kr:5000/account/register', {
+                    id: this.state.id, pw: this.state.password, name: this.state.name
+                })
+                alert("회원가입 성공")
+                this.props.history.push('/')
+            }
+            catch(err) {
+                alert("회원가입 실패")
+            }
+        }
     }
 
     handleChange = (e) => {
@@ -46,4 +62,4 @@ class Regist extends Component {
     };
 }
 
-export default Regist;
+export default withRouter(Regist);

@@ -3,6 +3,7 @@ import './Login.css';
 import Nav from "pages/Nav";
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
+import { setCookie } from 'lib/cookie';
 
 class Login extends Component {
     constructor() {
@@ -31,7 +32,7 @@ class Login extends Component {
                 })
                 alert('로그인 성공')
                 this.state.isLogin = true
-                console.log(response)
+                setCookie('JWT', response.data.access_token)
                 this.props.history.push('/')
             }
             catch (err) {
@@ -55,7 +56,7 @@ class Login extends Component {
                     <h2>로그인</h2>
                     <form>
                         <input type="text" name="id" className="Login-box" placeholder="ID" onChange={this.handleChange} required></input><br/>
-                        <input type="text" name="password" className="Login-box" placeholder="Password" onChange={this.handleChange} required></input>
+                        <input type="password" name="password" className="Login-box" placeholder="Password" onChange={this.handleChange} required></input>
                         <p style={style}><Link to="/regist">회원가입</Link></p>
                         <button type="submit" className="Login-submit" onClick={this.onClick}>Login</button>
                     </form>
