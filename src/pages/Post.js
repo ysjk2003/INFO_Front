@@ -23,7 +23,6 @@ class Post extends Component {
     render () {
         return (
             <div>
-                <Nav />
                 <div className="wrapper-editor">
                     <input type="text" name='title' className="Post-title" placeholder="제목"></input>
                     <Editor name="text" wrapperClassName="wrapper-class" editorClassName="editor-class" localization={{locale: 'ko',}}/>

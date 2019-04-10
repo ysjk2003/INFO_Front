@@ -10,7 +10,6 @@ class Curriculum extends Component {
     render() {
         return (
             <div>
-                <Nav />
                 <div className="Sub">
                     <div className="C">
                         <Link to="/curriculum/c"><img src={c}/></Link>

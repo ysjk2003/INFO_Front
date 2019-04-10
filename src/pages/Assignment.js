@@ -6,7 +6,6 @@ class Assignment extends Component {
     render () {
         return (
             <div>
-                <Nav />
                 <div className="Submit">
                     <h2>과제제출</h2>
                     <select className="Select">

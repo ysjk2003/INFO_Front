@@ -47,7 +47,6 @@ class Regist extends Component {
     render() {
         return (
             <div>
-                <Nav />
                 <div className="Login">
                     <h2>회원가입</h2>
                     <form>

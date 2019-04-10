@@ -4,6 +4,7 @@ import Nav from "pages/Nav";
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { setCookie } from 'lib/cookie';
+import { PropTypes } from 'prop-types';
 
 class Login extends Component {
     constructor() {
@@ -13,8 +14,7 @@ class Login extends Component {
 
     state = {
         id: '',
-        password: '',
-        isLogin : false
+        password: ''
     }
 
     async onClick (e) {
@@ -27,16 +27,17 @@ class Login extends Component {
         }
         else {
             try {
-                const response = await axios.post('http://info.dsmhs.kr:5000/account/login', {
+                const response = await axios.post('http://infodsm.club:5000/account/login', {
                     id: this.state.id, pw: this.state.password
                 })
                 alert('로그인 성공')
-                this.state.isLogin = true
+                this.props.IsLogin(true)
                 setCookie('JWT', response.data.access_token)
                 this.props.history.push('/')
             }
             catch (err) {
                 alert('로그인 실패')
+                console.log(err)
             }
         }
     }
@@ -51,7 +52,6 @@ class Login extends Component {
         }
         return (
             <div>
-                <Nav />
                 <div className="Login">
                     <h2>로그인</h2>
                     <form>
@@ -65,5 +65,6 @@ class Login extends Component {
         );
     };
 }
+
 
 export default withRouter(Login);

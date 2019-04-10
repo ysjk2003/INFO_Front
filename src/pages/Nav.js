@@ -16,7 +16,14 @@ class Nav extends Component {
                         <li><Link to="/">메인</Link></li>
                         <li><Link to="/curriculum">커리큘럼</Link></li>
                         <li><Link to="/assignment">과제제출</Link></li>
-                        <li><Link to="/login">로그인</Link></li>
+                        {
+                            this.props.login ?
+                            <li><div>로그아웃</div></li> :
+                            <li><Link to="/login">로그인</Link></li>
+                        }
+                        {
+                            console.log(this.props.login)
+                        }
                     </ul>
                 </div>
             </div>

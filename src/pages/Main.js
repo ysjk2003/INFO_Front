@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import info from 'resource/info.png';
 import Member from 'pages/Member';
-import Nav from 'pages/Nav';
+import NavContainer from 'pages/NavContainer';
 import './Main.css'
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,6 @@ class Main extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
         <div className="Introduce">
           <div className="Introduce-club">
               <Link to="/"><img src={info} className="Logo"/></Link>

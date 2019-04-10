@@ -19,7 +19,6 @@ class Board extends Component {
         ));
         return (
             <div>
-                <Nav />
                 <div className="Board-wrapper">
                     <div className="Board">
                         <div className="Category">
