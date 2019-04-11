@@ -17,18 +17,18 @@ class Regist extends Component {
 
     async onClick(e) {
         e.preventDefault();
-        if (this.state.id == '') {
+        if (this.state.id === '') {
             alert("아이디를 입력하세요")
         }
-        else if (this.state.password == '') {
+        else if (this.state.password === '') {
             alert("패스워드를 입력하세요")
         }
-        else if (this.state.name == '') {
+        else if (this.state.name === '') {
             alert("이름을 입력하세요")
         }
         else {
             try {
-                await axios.post('http://info.dsmhs.kr:5000/account/register', {
+                await axios.post('http://infodsm.club:5000/account/register', {
                     id: this.state.id, pw: this.state.password, name: this.state.name
                 })
                 alert("회원가입 성공")

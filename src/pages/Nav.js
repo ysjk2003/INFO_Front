@@ -3,8 +3,14 @@ import logo from 'resource/logo.png';
 import { Link } from 'react-router-dom';
 import './Nav.css'
 import menu from 'resource/menu.svg';
+import { deleteCookie } from 'lib/cookie.js'
 
 class Nav extends Component {
+    logout = () => {
+        this.props.IsLogin(false);
+        deleteCookie('JWT');
+    }
+
     render() {
         return (
             <div className="App-navbar">
@@ -18,7 +24,7 @@ class Nav extends Component {
                         <li><Link to="/assignment">과제제출</Link></li>
                         {
                             this.props.login ?
-                            <li><div>로그아웃</div></li> :
+                            <li onClick={this.logout}>로그아웃</li> :
                             <li><Link to="/login">로그인</Link></li>
                         }
                         {

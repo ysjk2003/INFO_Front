@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './Login.css';
-import Nav from "pages/Nav";
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { setCookie } from 'lib/cookie';
-import { PropTypes } from 'prop-types';
+import { setCookie, deleteCookie } from 'lib/cookie';
+
 
 class Login extends Component {
     constructor() {
@@ -16,6 +15,7 @@ class Login extends Component {
         id: '',
         password: ''
     }
+    
 
     async onClick (e) {
         e.preventDefault();

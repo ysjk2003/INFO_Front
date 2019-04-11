@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import info from 'resource/info.png';
 import Member from 'pages/Member';
-import NavContainer from 'pages/NavContainer';
 import './Main.css'
 import { Link } from 'react-router-dom';
 
