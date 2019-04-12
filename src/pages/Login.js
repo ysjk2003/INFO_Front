@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Login.css';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { setCookie, deleteCookie } from 'lib/cookie';
+import { setCookie } from 'lib/cookie';
 
 
 class Login extends Component {
@@ -31,7 +31,9 @@ class Login extends Component {
                     id: this.state.id, pw: this.state.password
                 })
                 alert('로그인 성공')
-                this.props.IsLogin(true)
+                this.props.IsLogin(true);
+                const logflag = this.props.isLogin;
+                localStorage.setItem('isLogin', logflag)
                 setCookie('JWT', response.data.access_token)
                 this.props.history.push('/')
             }

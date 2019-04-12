@@ -17,7 +17,7 @@ class Post extends Component {
     }
 
     onClick = (e) => {
-        axios.post('/posting')
+        axios.post('infodsm.club:5000/post/${category}')
     }
 
     render () {
