@@ -1,13 +1,38 @@
 import React, { Component } from 'react';
 import './Board.css'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { getCookie } from 'lib/cookie';
 
 class Board extends Component {
     state = {
         title : [
             "What is C?",
             "What is Complier?"
-        ]
+        ],
+        category: '',
+        id: 0
+    }
+
+    jwt = 'Bearer ' + getCookie('JWT')
+
+    async componentWillMount() {
+        this.state.category = this.props.subject
+        const response = await axios.get(`http://infodsm.club:5000/post/${this.state.category}`,{
+            headers: { Authorization: this.jwt }
+        })
+    }
+
+    deletePost = async () => {
+        try {
+            const response = await axios.delete(`http://infodsm.club:5000/post/${this.state.category}/${this.state.id}`,{
+                headers: { Authorization: this.jwt }
+            });
+        }
+        catch (err) {
+            console.log(err)
+            alert("삭제 실패")
+        }
     }
 
     render() {
@@ -37,6 +62,7 @@ class Board extends Component {
                     <div className="Buttons">
                         <Link to="/Posting"><button type="submit" className="Create-Button">글쓰기</button></Link>
                         <button type="submit" className="Modify-button">수정</button>
+                        <button type="submit" onClick={this.deletePost} className="Delete-button">삭제</button>
                     </div>
                 </div>
             </div>

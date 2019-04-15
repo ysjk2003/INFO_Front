@@ -31,7 +31,7 @@
     color: #b2b2b2;
 }
 
-.Create-Button, .Modify-button {
+.Create-Button, .Modify-button, .Delete-button {
     font-size: 1rem;
     border: 0;
     background-color: rgb(134, 133, 133);

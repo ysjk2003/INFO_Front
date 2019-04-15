@@ -5,6 +5,7 @@ import { EditorState } from 'draft-js';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import axios from 'axios';
 import { getCookie } from 'lib/cookie.js'
+import { withRouter } from 'react-router-dom';
 
 class Post extends Component {
     state = {
@@ -89,4 +90,4 @@ class Post extends Component {
     }
 }
 
-export default Post;
+export default withRouter(Post);
