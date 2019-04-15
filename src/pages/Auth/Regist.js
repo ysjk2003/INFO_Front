@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from 'pages/Nav';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 

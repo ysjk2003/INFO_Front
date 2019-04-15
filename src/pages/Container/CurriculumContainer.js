@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Curriculum from './Curriculum';
-import * as actions from '../actions';
+import Curriculum from '../Curriculum/Curriculum';
+import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
 

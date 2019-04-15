@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Nav from './Nav'
-import * as actions from '../actions'
+import Nav from '../Main/Nav'
+import * as actions from '../../actions'
 
 class NavContainer extends Component {
     render() {

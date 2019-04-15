@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Post from './Post';
-import * as actions from '../actions'
+import Post from '../Post/Post';
+import * as actions from '../../actions'
 
 class PostContainer extends Component {
     render() {

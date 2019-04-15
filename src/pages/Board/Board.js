@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from 'pages/Nav';
 import './Board.css'
 import { Link } from 'react-router-dom';
 
