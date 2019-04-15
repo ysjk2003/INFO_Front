@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-    isLogin : state.isLogin
+    isLogin : state.login.isLogin
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavContainer)

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from 'resource/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Nav.css'
 import menu from 'resource/menu.svg';
 import { deleteCookie } from 'lib/cookie.js'
@@ -16,6 +16,8 @@ class Nav extends Component {
             isLogin : false
         })
         deleteCookie('JWT');
+        alert("로그아웃되었습니다.")
+        this.props.history.push('/')
     }
 
     componentWillMount() {
@@ -39,7 +41,6 @@ class Nav extends Component {
     
 
     render() {
-        const logged = localStorage.getItem('isLogin')
         const {isLogin} = this.state;
         return (
             <div className="App-navbar">
@@ -63,4 +64,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+export default withRouter(Nav);

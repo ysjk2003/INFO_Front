@@ -1,21 +1,11 @@
-import * as types from '../actions/ActionTypes';
+import login from './login';
+import subject from './posting';
 
-const initialState = {
-    isLogin: false,
-    id: '',
-    password: ''
-};
+import { combineReducers } from 'redux';
 
-function isLogin(state = initialState, action) {
-    switch (action.type) {
-        case types.IS_LOGIN:
-            return {
-                ...state,
-                isLogin: action.isLogin
-            }
-        default:
-            return state;
-    }
-}
+const reducers = combineReducers({
+    login,
+    subject
+})
 
-export default isLogin;
+export default reducers;

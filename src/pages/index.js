@@ -5,5 +5,7 @@ export { default as Curriculum } from './Curriculum';
 export { default as Assignment } from './Assignment';
 export { default as Board } from './Board';
 export { default as Post } from './Post';
-export { default as LoginContainer } from './LoginContainer'
-export { default as NavContainer } from './NavContainer'
+export { default as LoginContainer } from './LoginContainer';
+export { default as NavContainer } from './NavContainer';
+export { default as CurriculumContainer } from './CurriculumContainer';
+export { default as PostContainer } from './PostContainer';

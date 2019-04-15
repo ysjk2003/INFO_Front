@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Main, LoginContainer, Regist, Curriculum, Assignment, Board, Post, NavContainer } from 'pages';
+import { Main, LoginContainer, Regist, CurriculumContainer, Assignment, Board, PostContainer, NavContainer } from 'pages';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 
@@ -12,12 +12,12 @@ class App extends Component {
         <Route exact path="/" component={Main}/>
         <Route path="/login" component={LoginContainer}/>
         <Route path="/regist" component={Regist}/>
-        <Route exact path="/curriculum" component={Curriculum}/>
+        <Route exact path="/curriculum" component={CurriculumContainer}/>
         <Route path="/assignment" component={Assignment}/>
         <Route path="/curriculum/c" component={Board}/>
         <Route path="/curriculum/python" component={Board}/>
         <Route path="/curriculum/network" component={Board}/>
-        <Route path="/Posting" component={Post}/>
+        <Route path="/Posting" component={PostContainer}/>
       </div>
     );
   }
