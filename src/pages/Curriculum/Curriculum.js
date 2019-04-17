@@ -10,10 +10,12 @@ class Curriculum extends Component {
         subject: ''
     }
     
-    handleChange = (e) => {
-        this.state.subject = e.target.name
-        this.props.SUBJECT(this.state.subject)
-        console.log(this.state.subject)
+    handleChange = async (e) => {
+        const name = e.target.name
+        await this.setState({
+            subject : name
+        });
+        this.props.setSubject(name)
     }
 
     render() {

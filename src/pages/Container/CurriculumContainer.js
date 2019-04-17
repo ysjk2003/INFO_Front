@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class CurriculumContainer extends Component {
     render() {
         return (
-            <Curriculum SUBJECT={this.props.SUBJECT} subject={this.props.subject}/>
+            <Curriculum subject={this.props.subject} setSubject={this.props.setSubject}/>
         )
     }
 }
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    SUBJECT: (subject) => dispatch(actions.subject(subject))
+    setSubject: (subject) => dispatch(actions.subject(subject))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurriculumContainer);

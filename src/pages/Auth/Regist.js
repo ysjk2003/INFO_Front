@@ -50,7 +50,7 @@ class Regist extends Component {
                     <h2>회원가입</h2>
                     <form>
                         <input type="text" name="id" className="Login-box" placeholder="ID" onChange={this.handleChange} required></input><br/>
-                        <input type="text" name="password" className="Login-box" placeholder="Password" onChange={this.handleChange} required></input><br/>
+                        <input type="password" name="password" className="Login-box" placeholder="Password" onChange={this.handleChange} required></input><br/>
                         <input type="text" name="name" className="Login-box" placeholder="Name" onChange={this.handleChange} required></input>
                         <button type="submit" className="Regist-submit" onClick={this.onClick}>Regist</button>
                     </form>

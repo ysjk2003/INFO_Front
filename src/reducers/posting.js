@@ -1,11 +1,11 @@
 import * as types from '../actions/ActionTypes';
 
 const initialState = {
-    subject: null
+    subject: ''
 }
 
 const subject = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type){
         case types.SUBJECT:
             return {
                 subject: action.subject
