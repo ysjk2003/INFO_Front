@@ -44,9 +44,10 @@ class Board extends Component {
 
     deletePost = async () => {
         try {
-            const response = await axios.delete(`http://infodsm.club:5000/post/${this.state.category}/${this.state.curruntid}`,{
+            const response = await axios.delete(`http://infodsm.club:5000/post/${this.props.subject}/${this.state.curruntid}`,{
                 headers: { Authorization: this.jwt }
             });
+            alert("게시글이 삭제되었습니다.")
         }
         catch (err) {
             console.log(err)
@@ -57,7 +58,6 @@ class Board extends Component {
     requestPost = async (e) => {
         try {
             const id = e.target.className
-            console.log(id)
             const response = await axios.get(`http://infodsm.club:5000/post/${this.props.subject}/${id}`, {
                 headers: {Authorization: this.jwt}
             })
@@ -66,7 +66,6 @@ class Board extends Component {
                 curruntcontent: response.data[0].content,
                 currunttitle: response.data[0].title
             })
-            console.log(response.data[0])
         }
         catch (err) {
             console.log(err)
@@ -78,7 +77,7 @@ class Board extends Component {
         const { title } = this.state;
 
         const titlelist = title.map( title => (
-            (<p className={title.id}>{title.title}</p>)
+            (<p className={title.id} onClick={this.requestPost}>{title.title}</p>)
         ));
         return (
             <div>
@@ -86,7 +85,7 @@ class Board extends Component {
                     <div className="Board">
                         <div className="Category">
                             <h2>Chapter 1</h2>
-                            <p onClick={this.requestPost}>{ titlelist }</p>
+                            {titlelist}
                         </div>
                         <div className="Main">
                             <h1 className="Title">{this.state.currunttitle}</h1>
