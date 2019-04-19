@@ -70,8 +70,14 @@ class Post extends Component {
             }
             catch (err) {
                 console.log(err)
-                alert("오류가 발생하였습니다.")
-                console.log(this.state.category)
+                if (err.response.status === 500) {
+                    alert('세션이 만료되었습니다.')
+                    localStorage.clear();
+                    this.props.history.push('/')
+                }
+                else {
+                    alert('오류가 발생하였습니다.')
+                }
             }
         }
     }

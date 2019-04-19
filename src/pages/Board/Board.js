@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Board.css'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { getCookie } from 'lib/cookie';
 
@@ -39,19 +39,34 @@ class Board extends Component {
         }
         catch (err) {
             console.log(err)
+            if (err.response.status === 500) {
+                alert('세션이 만료되었습니다.')
+                localStorage.clear();
+                this.props.history.push('/')
+            }
+            else {
+                alert("오류가 발생하였습니다.")
+            }
         }
     }
 
     deletePost = async () => {
         try {
-            const response = await axios.delete(`http://infodsm.club:5000/post/${this.props.subject}/${this.state.curruntid}`,{
+            await axios.delete(`http://infodsm.club:5000/post/${this.props.subject}/${this.state.curruntid}`,{
                 headers: { Authorization: this.jwt }
             });
             alert("게시글이 삭제되었습니다.")
         }
         catch (err) {
             console.log(err)
-            alert("삭제 실패")
+            if (err.response.status === 500) {
+                alert('세션이 만료되었습니다.')
+                localStorage.clear();
+                this.props.history.push('/')
+            }
+            else {
+                alert('오류가 발생하였습니다.')
+            }
         }
     }
 
@@ -69,9 +84,26 @@ class Board extends Component {
         }
         catch (err) {
             console.log(err)
-            alert('오류가 발생했습니다.')
+            if (err.response.status === 500) {
+                alert('세션이 만료되었습니다.')
+                localStorage.clear();
+                this.props.history.push('/')
+            }
+            else {
+                alert('오류가 발생하였습니다.')
+            }
         }
     }
+
+    // modifyPost = async () => {
+    //     try{
+    //         // const response = await axios.put(`http://infodsm.club:5000/post/${this.props.subject}/${this.state.curruntid}`)
+    //     }
+    //     catch(err) {
+    //         console.log(err)
+    //         alert('에러')
+    //     }
+    // }
 
     render() {
         const { title } = this.state;
@@ -84,7 +116,7 @@ class Board extends Component {
                 <div className="Board-wrapper">
                     <div className="Board">
                         <div className="Category">
-                            <h2>Chapter 1</h2>
+                            <h2>{this.props.subject}</h2>
                             {titlelist}
                         </div>
                         <div className="Main">
@@ -94,7 +126,7 @@ class Board extends Component {
                     </div>
                     <div className="Buttons">
                         <Link to="/Posting"><button type="submit" className="Create-Button">글쓰기</button></Link>
-                        <button type="submit" className="Modify-button">수정</button>
+                        <Link to="/Posting/"><button type="submit" className="Modify-button" onClick={this.modifyPost}>수정</button></Link>
                         <button type="submit" onClick={this.deletePost} className="Delete-button">삭제</button>
                     </div>
                 </div>
@@ -103,4 +135,4 @@ class Board extends Component {
     }
 }
  
-export default Board;
+export default withRouter(Board);
