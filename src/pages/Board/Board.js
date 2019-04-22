@@ -95,16 +95,6 @@ class Board extends Component {
         }
     }
 
-    // modifyPost = async () => {
-    //     try{
-    //         // const response = await axios.put(`http://infodsm.club:5000/post/${this.props.subject}/${this.state.curruntid}`)
-    //     }
-    //     catch(err) {
-    //         console.log(err)
-    //         alert('에러')
-    //     }
-    // }
-
     render() {
         const { title } = this.state;
 
@@ -126,7 +116,13 @@ class Board extends Component {
                     </div>
                     <div className="Buttons">
                         <Link to="/Posting"><button type="submit" className="Create-Button">글쓰기</button></Link>
-                        <Link to="/Posting/"><button type="submit" className="Modify-button" onClick={this.modifyPost}>수정</button></Link>
+                        <Link to={{
+                            pathname: "/Posting/modify",
+                            state: {
+                                content: this.state.curruntcontent,
+                                title: this.state.currunttitle,
+                                id: this.state.curruntid
+                            }}}><button type="submit" className="Modify-button">수정</button></Link>
                         <button type="submit" onClick={this.deletePost} className="Delete-button">삭제</button>
                     </div>
                 </div>

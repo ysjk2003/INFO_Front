@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import './Post.css';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState } from 'draft-js';
+import { EditorState, convertFromHTML, ContentState } from 'draft-js';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import axios from 'axios';
 import { getCookie } from 'lib/cookie.js'
 import { withRouter } from 'react-router-dom';
 
 class Post extends Component {
+    constructor(props) {
+        super(props);
+    
+        let editorState;
+    
+        if (props.location.state.content) {
+          const blocksFromHTML = convertFromHTML(props.location.state.content);
+          const contentState = ContentState.createFromBlockArray(blocksFromHTML);
+          editorState = EditorState.createWithContent(contentState);
+        }
+        else {
+          editorState = EditorState.createEmpty();
+        }
+    
+        this.state = { editorState };
+    }
+
     state = {
         title: '',
         editorState: EditorState.createEmpty(),
@@ -58,7 +75,7 @@ class Post extends Component {
         }
         else {
             try {
-                const response = await axios.post('http://infodsm.club:5000/post/write',
+                await axios.post('http://infodsm.club:5000/post/write',
                 {
                     title: title, content: editorState.getCurrentContent().getPlainText(), category: this.state.category,
                 },
@@ -82,17 +99,46 @@ class Post extends Component {
         }
     }
 
+    modifyPost = async () => {
+        try{
+            const response = await axios.put(`http://infodsm.club:5000/post/${this.props.subject}/${this.props.location.state.id}`,{
+                headers: {Authorization: this.jwt}
+            },
+            {
+                title: this.state.title,
+                content: this.state.editorState.getCurrentContent().getPlainText()
+            })
+        }
+        catch(err) {
+            console.log(err)
+            alert('에러')
+        }
+    }
+
     render() {
         const { editorState } = this.state;
-        return (
-            <div>
-                <div className="wrapper-editor">
-                    <input type="text" name='title' className="Post-title" placeholder="제목" onChange={this.handleChange}></input>
-                    <Editor editorState={editorState} wrapperClassName="wrapper-class" onEditorStateChange={this.onEditorStateChange} editorClassName="editor-class" localization={{ locale: 'ko', }} toolbar={{image: {uploadCallback: this.uploadImageCallBack}}} />
-                    <button type="submit" onClick={this.onClick} className="Save">저장</button>
+        if(window.location.href === "http://localhost:3000/Posting/modify") {
+            return (
+                <div>
+                    <div className="wrapper-editor">
+                        <input type="text" name='title' className="Post-title" placeholder="제목" onChange={this.handleChange} value={this.props.location.state.title}></input>
+                        <Editor editorState={editorState} defaultEditorState={this.props.location.state.content} wrapperClassName="wrapper-class" onEditorStateChange={this.onEditorStateChange} editorClassName="editor-class" localization={{ locale: 'ko', }} toolbar={{image: {uploadCallback: this.uploadImageCallBack}}} />
+                        <button type="submit" onClick={this.modifyPost} className="Save">저장</button>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        else {
+            return (
+                <div>
+                    <div className="wrapper-editor">
+                        <input type="text" name='title' className="Post-title" placeholder="제목" onChange={this.handleChange}></input>
+                        <Editor editorState={editorState} wrapperClassName="wrapper-class" onEditorStateChange={this.onEditorStateChange} editorClassName="editor-class" localization={{ locale: 'ko', }} toolbar={{image: {uploadCallback: this.uploadImageCallBack}}} />
+                        <button type="submit" onClick={this.onClick} className="Save">저장</button>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
