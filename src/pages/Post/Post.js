@@ -13,7 +13,7 @@ class Post extends Component {
     
         let editorState;
     
-        if (props.location.state.content) {
+        if (props.location.state) {
           const blocksFromHTML = convertFromHTML(props.location.state.content);
           const contentState = ContentState.createFromBlockArray(blocksFromHTML);
           editorState = EditorState.createWithContent(contentState);
@@ -26,9 +26,11 @@ class Post extends Component {
     }
 
     componentWillMount() {
-        this.setState({
-            title: this.props.location.state.title
-        })
+        if(this.props.location.state){
+            this.setState({
+                title: this.props.location.state.title
+            })
+        }
     }
 
     state = {
@@ -79,7 +81,7 @@ class Post extends Component {
             try {
                 await axios.post('http://infodsm.club:5000/post/write',
                 {
-                    title: title, content: editorState.getCurrentContent().getPlainText(), category: this.state.category,
+                    title: title, content: editorState.getCurrentContent().getPlainText(), category: this.props.subject,
                 },
                 {
                     headers: { Authorization: this.jwt }
@@ -89,31 +91,34 @@ class Post extends Component {
             }
             catch (err) {
                 console.log(err)
-                if (err.response.status === 500) {
-                    alert('세션이 만료되었습니다.')
-                    localStorage.clear();
-                    this.props.history.push('/')
-                }
-                else {
-                    alert('오류가 발생하였습니다.')
-                }
+                alert('오류')
             }
         }
     }
 
     modifyPost = async () => {
         try{
-            const response = await axios.put(`http://infodsm.club:5000/post/${this.props.subject}/${this.props.location.state.id}`,{
-                headers: {Authorization: this.jwt}
-            },
+            await axios.put(`http://infodsm.club:5000/post/${this.props.subject}/${this.props.location.state.id}`,
             {
                 title: this.state.title,
                 content: this.state.editorState.getCurrentContent().getPlainText()
-            })
+            },
+            {
+                headers: { Authorization: this.jwt }
+            });
+            alert('글이 수정되었습니다.');
+            this.props.history.push('/')
         }
         catch(err) {
             console.log(err)
-            alert('에러')
+            if (err.response.status === 500) {
+                alert('세션이 만료되었습니다.')
+                localStorage.clear();
+                this.props.history.push('/')
+            }
+            else {
+                alert('오류가 발생하였습니다.')
+            }
         }
     }
 
