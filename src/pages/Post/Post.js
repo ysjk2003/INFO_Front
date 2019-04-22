@@ -25,14 +25,16 @@ class Post extends Component {
         this.state = { editorState };
     }
 
+    componentWillMount() {
+        this.setState({
+            title: this.props.location.state.title
+        })
+    }
+
     state = {
         title: '',
         editorState: EditorState.createEmpty(),
         category: ''
-    }
-
-    componentWillMount() {
-        this.state.category = this.props.subject
     }
 
     jwt = 'Bearer ' + getCookie('JWT')
@@ -121,7 +123,7 @@ class Post extends Component {
             return (
                 <div>
                     <div className="wrapper-editor">
-                        <input type="text" name='title' className="Post-title" placeholder="제목" onChange={this.handleChange} value={this.props.location.state.title}></input>
+                        <input type="text" name='title' className="Post-title" placeholder="제목" onChange={this.handleChange} value={this.state.title}></input>
                         <Editor editorState={editorState} defaultEditorState={this.props.location.state.content} wrapperClassName="wrapper-class" onEditorStateChange={this.onEditorStateChange} editorClassName="editor-class" localization={{ locale: 'ko', }} toolbar={{image: {uploadCallback: this.uploadImageCallBack}}} />
                         <button type="submit" onClick={this.modifyPost} className="Save">저장</button>
                     </div>
