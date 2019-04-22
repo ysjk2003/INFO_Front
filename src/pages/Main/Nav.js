@@ -49,13 +49,13 @@ class Nav extends Component {
                 <input type="checkbox" id="toggle" className="toggle"/>
                 <div className="menu">
                     <ul id="nav">
-                        <li><Link to="/">메인</Link></li>
-                        <li><Link to="/curriculum">커리큘럼</Link></li>
-                        <li><Link to="/assignment">과제제출</Link></li>
+                        <li id="nav-menu"><Link to="/">메인</Link></li>
+                        <li id="nav-menu"><Link to="/curriculum">커리큘럼</Link></li>
+                        <li id="nav-menu"><Link to="/assignment">과제제출</Link></li>
                         {
                             isLogin ?
-                            <li onClick={this.logout}>로그아웃</li> :
-                            <li><Link to="/login">로그인</Link></li>
+                            <li onClick={this.logout} id="nav-menu">로그아웃</li> :
+                            <li id="nav-menu"><Link to="/login">로그인</Link></li>
                         }
                     </ul>
                 </div>

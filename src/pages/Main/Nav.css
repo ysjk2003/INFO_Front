@@ -10,7 +10,7 @@
     height: 4rem;
 }
 
-li {
+#nav-menu {
     display: inline;
     list-style-type: none;
     padding:0 0 0 20px;
