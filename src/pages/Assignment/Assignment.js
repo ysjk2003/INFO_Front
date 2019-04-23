@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './Assignment.css'
 
 class Assignment extends Component {
+
+    componentWillMount() {
+        if(!localStorage.getItem('isLogin')) {
+            alert('로그인을 해주세요!')
+            this.props.history.push('/')
+        }
+    }
+
     render () {
         return (
             <div>

@@ -3,21 +3,21 @@ import React, { Component } from 'react';
 class Member extends Component {
     state = {
         information: [
-            {
-                id: 0,
-                number: 'DSM2016',
-                name: '이재석'
-            },
+            // {
+            //     id: 0,
+            //     number: 'DSM2016',
+            //     name: '이재석'
+            // },
             {
                 id: 0,
                 number: '30414',
                 name: '이지후'
             },
-            {
-                id: 1,
-                number: 'DSM2016',
-                name: '이재빈'
-            },
+            // {
+            //     id: 1,
+            //     number: 'DSM2016',
+            //     name: '이재빈'
+            // },
             {
                 id: 1,
                 number: '30401',
@@ -42,6 +42,21 @@ class Member extends Component {
                 id: 1,
                 number: '20418',
                 name: '최지웅'
+            },
+            {
+                id:1,
+                number: '10112',
+                name: '심준호'
+            },
+            {
+                id: 1,
+                number: '10308',
+                name: '손영웅'
+            },
+            {
+                id: 1,
+                number: '10313',
+                name: '윤지훈'
             }
         ]
     }

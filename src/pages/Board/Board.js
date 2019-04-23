@@ -25,6 +25,13 @@ class Board extends Component {
         this.getTitle(nextProps);
     }
 
+    componentWillMount() {
+        if(!localStorage.getItem('isLogin')) {
+            alert('로그인을 해주세요!')
+            this.props.history.push('/')
+        }
+    }
+
     getTitle = async (nextProps) => {
         try{
             const response = await axios.get(`http://infodsm.club:5000/post/${nextProps.subject}`,{

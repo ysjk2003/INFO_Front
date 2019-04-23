@@ -3,7 +3,7 @@ import c from 'resource/c.png';
 import network from 'resource/network.png';
 import python from 'resource/python.png';
 import './Curriculum.css';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Curriculum extends Component {
     state = {
@@ -16,6 +16,13 @@ class Curriculum extends Component {
             subject : name
         });
         this.props.setSubject(name)
+    }
+
+    componentWillMount() {
+        if(!localStorage.getItem('isLogin')) {
+            alert('로그인을 해주세요!')
+            this.props.history.push('/')
+        }
     }
 
     render() {
@@ -37,4 +44,4 @@ class Curriculum extends Component {
     }
 }
 
-export default Curriculum;
+export default withRouter(Curriculum);
