@@ -16,6 +16,7 @@ class Curriculum extends Component {
             subject : name
         });
         this.props.setSubject(name)
+        console.log(this.props.subject)
     }
 
     componentWillMount() {
