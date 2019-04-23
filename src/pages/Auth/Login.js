@@ -50,7 +50,7 @@ class Login extends Component {
 
     render() {
         const style = {
-            'text-align': 'center'
+            'textAlign': 'center'
         }
         return (
             <div>

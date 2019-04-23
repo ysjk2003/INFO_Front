@@ -21,11 +21,9 @@ class Assignment extends Component {
                         <option value="Python">Python</option>
                         <option value="Network">Network</option>
                     </select>
-                    <from>
-                        <input type="text" className="Subject" placeholder="제목" required></input><br/>
-                        <input type="file" className="File" required></input><br/>
-                        <input type="submit" className="Submit-button"></input>
-                    </from>
+                    <input type="text" className="Subject" placeholder="제목" required></input><br/>
+                    <input type="file" className="File" required></input><br/>
+                    <input type="submit" className="Submit-button"></input>
                 </div>
             </div>
         )

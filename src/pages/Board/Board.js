@@ -105,7 +105,7 @@ class Board extends Component {
     render() {
         const { title } = this.state;
         const titlelist = title.map( title => (
-            (<p className={title.id} onClick={this.requestPost}>{title.title}</p>)
+            (<p className={title.id} onClick={this.requestPost} key={title.id}>{title.title}</p>)
         ));
         return (
             <div>
