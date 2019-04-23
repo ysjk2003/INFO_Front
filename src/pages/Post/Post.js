@@ -13,7 +13,7 @@ class Post extends Component {
     
         let editorState;
     
-        if (props.location.state) {
+        if (props.location.state.content) {
           const blocksFromHTML = convertFromHTML(props.location.state.content);
           const contentState = ContentState.createFromBlockArray(blocksFromHTML);
           editorState = EditorState.createWithContent(contentState);
@@ -32,9 +32,13 @@ class Post extends Component {
         }
         if(this.props.location.state){
             this.setState({
-                title: this.props.location.state.title
+                title: this.props.location.state.title,
+                category: this.props.location.state.category
             })
         }
+        this.setState({
+            category: this.props.location.state.category
+        })
     }
 
     state = {
@@ -74,7 +78,7 @@ class Post extends Component {
     };
 
     onClick = async (e) => {
-        const { title, editorState } = this.state
+        const { title, editorState, category } = this.state
         if (title === '') {
             alert("제목을 작성해 주세요!")
         }
@@ -85,13 +89,13 @@ class Post extends Component {
             try {
                 await axios.post('http://infodsm.club:5000/post/write',
                 {
-                    title: title, content: editorState.getCurrentContent().getPlainText(), category: this.props.subject,
+                    title: title, content: editorState.getCurrentContent().getPlainText(), category: category,
                 },
                 {
                     headers: { Authorization: this.jwt }
                 });
                 alert('글이 저장되었습니다.')
-                this.props.history.push('/')
+                this.props.history.push('/curriculum')
             }
             catch (err) {
                 console.log(err)
@@ -102,7 +106,7 @@ class Post extends Component {
 
     modifyPost = async () => {
         try{
-            await axios.put(`http://infodsm.club:5000/post/${this.props.subject}/${this.props.location.state.id}`,
+            await axios.put(`http://infodsm.club:5000/post/${this.state.category}/${this.props.location.state.id}`,
             {
                 title: this.state.title,
                 content: this.state.editorState.getCurrentContent().getPlainText()
@@ -111,14 +115,14 @@ class Post extends Component {
                 headers: { Authorization: this.jwt }
             });
             alert('글이 수정되었습니다.');
-            this.props.history.push('/')
+            this.props.history.push('/curriculum')
         }
         catch(err) {
             console.log(err)
             if (err.response.status === 500) {
                 alert('세션이 만료되었습니다.')
                 localStorage.clear();
-                this.props.history.push('/')
+                this.props.history.push('/curriculum/c')
             }
             else {
                 alert('오류가 발생하였습니다.')

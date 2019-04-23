@@ -7,16 +7,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 class Curriculum extends Component {
     state = {
-        subject: ''
-    }
-    
-    handleChange = async (e) => {
-        const name = e.target.name
-        await this.setState({
-            subject : name
-        });
-        this.props.setSubject(name)
-        console.log(this.props.subject)
+        category: ''
     }
 
     componentWillMount() {
@@ -31,13 +22,25 @@ class Curriculum extends Component {
             <div>
                 <div className="Sub">
                     <div className="C">
-                        <Link to="/curriculum/c"><img src={c} alt="c" name="c" onClick={this.handleChange}/></Link>
+                        <Link to={{
+                            pathname: "/curriculum/c",
+                            state: {
+                                category: 'C'
+                            }}}><img src={c} alt="c" name="c"/></Link>
                     </div>
                     <div className='Python'>
-                        <Link to="/curriculum/python"><img src={python} alt="python" name="python" onClick={this.handleChange}/></Link>
+                        <Link to={{
+                            pathname:"/curriculum/python",
+                            state: {
+                                category: 'Python'
+                            }}}><img src={python} alt="python" name="python"/></Link>
                     </div>
                     <div className="Network">
-                        <Link to="/curriculum/network"><img src={network} alt="network" name="network" onClick={this.handleChange}/></Link>
+                        <Link to={{
+                            pathname:"/curriculum/network",
+                            state: {
+                                category: 'Network'
+                            }}}><img src={network} alt="network" name="network"/></Link>
                     </div>
                 </div>
             </div>

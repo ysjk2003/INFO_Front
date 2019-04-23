@@ -10,7 +10,7 @@
     height: 4rem;
 }
 
-#nav-menu {
+.menu ul li{
     display: inline;
     list-style-type: none;
     padding:0 0 0 20px;
@@ -60,6 +60,7 @@
         display: block;
         text-align: center;
         margin: 1rem;
+        padding: 0;
     }
 
     #nav {
