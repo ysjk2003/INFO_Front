@@ -31,7 +31,7 @@ class Login extends Component {
                     id: this.state.id, pw: this.state.password
                 })
                 alert('로그인 성공')
-                this.props.IsLogin(true);
+                this.props.setLogin(true);
                 const logflag = this.props.isLogin;
                 localStorage.setItem('isLogin', logflag)
                 setCookie('JWT', response.data.access_token)

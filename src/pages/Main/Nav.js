@@ -10,7 +10,7 @@ class Nav extends Component {
         isLogin: false
     }
     logout = () => {
-        this.props.IsLogin(false);
+        this.props.setLogin(false);
         localStorage.clear();
         this.setState({
             isLogin : false
@@ -45,7 +45,7 @@ class Nav extends Component {
         return (
             <div className="App-navbar">
                 <img src={logo} alt="Info" className="App-logo"/>
-                <label className="nav_btn" for="toggle"><img src={menu} alt="menu" className="Menu-image"></img></label>
+                <label className="nav_btn" htmlFor="toggle"><img src={menu} alt="menu" className="Menu-image"></img></label>
                 <input type="checkbox" id="toggle" className="toggle"/>
                 <div className="menu">
                     <ul id="nav">

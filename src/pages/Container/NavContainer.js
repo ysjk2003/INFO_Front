@@ -6,7 +6,7 @@ import * as actions from '../../actions'
 class NavContainer extends Component {
     render() {
         return (
-            <Nav login = {this.props.isLogin} IsLogin={this.props.IsLogin}/>
+            <Nav login = {this.props.isLogin} setLogin={this.props.IsLogin}/>
         )
     }
 }

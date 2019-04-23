@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import info from 'resource/info.png';
 import Member from './Member';
 import './Main.css'

@@ -64,17 +64,17 @@ class Member extends Component {
     render() {
         const { information } = this.state;
         const OperList = information.map(information => (
-            information.id === 0 && (<p>{information.number} {information.name}</p>))
+            information.id === 0 && (<p key={information.number}>{information.number} {information.name}</p>))
         );
         const MemberList = information.map(information => (
-            information.id === 1 && (<p>{information.number} {information.name}</p>)
+            information.id === 1 && (<p key={information.number}>{information.number} {information.name}</p>)
         ));
         return (
             <div>
                 <h3 className="Introduce-title">운영진</h3>
-                <p>{OperList}</p>
+                {OperList}
                 <h3 className="Introduce-title">멤버</h3>
-                <p>{MemberList}</p>
+                {MemberList}
             </div>
         );
     }

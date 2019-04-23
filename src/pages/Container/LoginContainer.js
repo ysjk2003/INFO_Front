@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class LoginContainer extends Component {
     render() {
         return (
-            <Login IsLogin = {this.props.IsLogin} isLogin = {this.props.isLogin}/>
+            <Login setLogin = {this.props.IsLogin} isLogin = {this.props.isLogin}/>
         )
     }
 }
