@@ -51,7 +51,7 @@ class Nav extends Component {
                     <ul id="nav">
                         <li id="nav-menu"><Link to="/">메인</Link></li>
                         <li id="nav-menu"><Link to="/curriculum">커리큘럼</Link></li>
-                        <li id="nav-menu"><Link to="/assignment">과제제출</Link></li>
+                        <li id="nav-menu"><Link to="/assignment">부원모집</Link></li>
                         {
                             isLogin ?
                             <li onClick={this.logout} id="nav-menu">로그아웃</li> :

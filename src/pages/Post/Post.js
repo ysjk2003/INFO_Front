@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './Post.css';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState, convertFromHTML, ContentState } from 'draft-js';
+import { EditorState, convertFromHTML, ContentState, convertToRaw } from 'draft-js';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import axios from 'axios';
 import { getCookie } from 'lib/cookie.js'
 import { withRouter } from 'react-router-dom';
+import draftToHtml from 'draftjs-to-html';
 
 class Post extends Component {
     constructor(props) {
@@ -89,7 +90,7 @@ class Post extends Component {
             try {
                 await axios.post('http://infodsm.club:5000/post/write',
                 {
-                    title: title, content: editorState.getCurrentContent().getPlainText(), category: category,
+                    title: title, content: draftToHtml(convertToRaw(editorState.getCurrentContent())), category: category,
                 },
                 {
                     headers: { Authorization: this.jwt }
@@ -99,7 +100,16 @@ class Post extends Component {
             }
             catch (err) {
                 console.log(err)
-                alert('오류')
+                if (err.response) {
+                    if(err.response.status === 500) {
+                        alert('세션이 만료되었습니다.')
+                        localStorage.clear();
+                        this.props.history.push('/')
+                    }
+                }
+                else {
+                    alert('오류가 발생하였습니다.')
+                }
             }
         }
     }
@@ -119,10 +129,12 @@ class Post extends Component {
         }
         catch(err) {
             console.log(err)
-            if (err.response.status === 500) {
-                alert('세션이 만료되었습니다.')
-                localStorage.clear();
-                this.props.history.push('/curriculum/c')
+            if (err.response) {
+                if(err.response.status === 500) {
+                    alert('세션이 만료되었습니다.')
+                    localStorage.clear();
+                    this.props.history.push('/')
+                }
             }
             else {
                 alert('오류가 발생하였습니다.')

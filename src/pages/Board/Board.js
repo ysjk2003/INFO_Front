@@ -50,11 +50,15 @@ class Board extends Component {
             })
         }
         catch (err) {
-            console.log(err)
-            if (err.response.status === 500) {
+            console.log(err, this.state.title.id)
+            if (err.response) {
+                if(err.response.state === 500)
                 alert('세션이 만료되었습니다.')
                 localStorage.clear();
                 this.props.history.push('/')
+            }
+            else if(!this.state.title.id) {
+                
             }
             else {
                 alert("오류가 발생하였습니다.")
@@ -72,10 +76,12 @@ class Board extends Component {
         }
         catch (err) {
             console.log(err)
-            if (err.response.status === 500) {
-                alert('세션이 만료되었습니다.')
-                localStorage.clear();
-                this.props.history.push('/')
+            if (err.response) {
+                if(err.response.status === 500) {
+                    alert('세션이 만료되었습니다.')
+                    localStorage.clear();
+                    this.props.history.push('/')
+                }
             }
             else {
                 alert('오류가 발생하였습니다.')
@@ -97,10 +103,12 @@ class Board extends Component {
         }
         catch (err) {
             console.log(err)
-            if (err.response.status === 500) {
-                alert('세션이 만료되었습니다.')
-                localStorage.clear();
-                this.props.history.push('/')
+            if (err.response) {
+                if(err.response.status === 500) {
+                    alert('세션이 만료되었습니다.')
+                    localStorage.clear();
+                    this.props.history.push('/')
+                }
             }
             else {
                 alert('오류가 발생하였습니다.')
@@ -123,7 +131,7 @@ class Board extends Component {
                         </div>
                         <div className="Main">
                             <h1 className="Title">{this.state.currunttitle}</h1>
-                            <p className="Text">{this.state.curruntcontent}</p>
+                            <pre className="Text">{this.state.curruntcontent}</pre>
                         </div>
                     </div>
                     <div className="Buttons">
