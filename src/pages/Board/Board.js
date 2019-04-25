@@ -3,6 +3,8 @@ import './Board.css'
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { getCookie } from 'lib/cookie';
+import { Editor } from 'react-draft-wysiwyg';
+import { convertFromHTML, ContentState, EditorState } from 'draft-js';
 
 class Board extends Component {
 
@@ -15,8 +17,9 @@ class Board extends Component {
         ],
         curruntid: 0,
         currunttitle: '글이 없습니다.',
-        curruntcontent: '글이 없습니다.',
-        category: ''
+        curruntcontent: '글이 없습니다',
+        category: '',
+        editorState: EditorState.createEmpty()
     }
 
     jwt = 'Bearer ' + getCookie('JWT')
@@ -34,7 +37,6 @@ class Board extends Component {
 
     componentDidMount() {
         this.getTitle();
-        console.log(this.state.category)
     }
 
     getTitle = async () => {
@@ -46,11 +48,19 @@ class Board extends Component {
                 title: response.data,
                 curruntid: response.data[0].id,
                 currunttitle: response.data[0].title,
-                curruntcontent: response.data[0].content
+            })
+            
+            const content = await axios.get(`http://infodsm.club:5000/post/${this.state.category}/${this.state.curruntid}`,{
+                headers: { Authorization: this.jwt }
+            })
+            this.setState({
+                curruntcontent: content.data[0].content
+            })
+            this.setState({
+                editorState: EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(this.state.curruntcontent)))
             })
         }
         catch (err) {
-            console.log(err, this.state.title.id)
             if (err.response) {
                 if(err.response.state === 500)
                 alert('세션이 만료되었습니다.')
@@ -131,7 +141,7 @@ class Board extends Component {
                         </div>
                         <div className="Main">
                             <h1 className="Title">{this.state.currunttitle}</h1>
-                            <pre className="Text">{this.state.curruntcontent}</pre>
+                            <Editor editorClassName="Content" editorState={this.state.editorState} readOnly={true}/>
                         </div>
                     </div>
                     <div className="Buttons">

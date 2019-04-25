@@ -18,6 +18,7 @@ class Post extends Component {
           const blocksFromHTML = convertFromHTML(props.location.state.content);
           const contentState = ContentState.createFromBlockArray(blocksFromHTML);
           editorState = EditorState.createWithContent(contentState);
+          console.log(editorState)
         }
         else {
           editorState = EditorState.createEmpty();
@@ -119,13 +120,14 @@ class Post extends Component {
             await axios.put(`http://infodsm.club:5000/post/${this.state.category}/${this.props.location.state.id}`,
             {
                 title: this.state.title,
-                content: this.state.editorState.getCurrentContent().getPlainText()
+                content: draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
             },
             {
                 headers: { Authorization: this.jwt }
             });
             alert('글이 수정되었습니다.');
             this.props.history.push('/curriculum')
+            console.log(this.state.editorState)
         }
         catch(err) {
             console.log(err)

@@ -45,3 +45,11 @@
     margin-top: 1rem;
     text-align: right;
 }
+
+.Main .rdw-editor-toolbar {
+    display: none !important;
+}
+
+.Content {
+    color: #b2b2b2;
+}

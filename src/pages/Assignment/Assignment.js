@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Assignment.css'
 
 class Assignment extends Component {
+
+    componentWillMount() {
+        alert('신입부원 모집 기간이 아닙니다');
+        this.props.history.push('/')
+    }
 
     render () {
         return (
@@ -23,4 +29,4 @@ class Assignment extends Component {
     }
 }
 
-export default Assignment;
+export default withRouter(Assignment);
