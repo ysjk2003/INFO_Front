@@ -16,15 +16,21 @@
     width: 100%;
 }
 
-.Subject {
+.Textbox {
     display: table;
     height: auto;
-    padding: auto;
+    padding: 10px;
     font-size: 1rem;
-    width: 70%;
-    margin: auto;
-    border: 0;
-    color: white;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.Text {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 0 auto;
+    width: 92%;
+    overflow: auto;
 }
 
 .Select {
