@@ -110,6 +110,9 @@ class Board extends Component {
                 curruntcontent: response.data[0].content,
                 currunttitle: response.data[0].title
             })
+            this.setState({
+                editorState: EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(this.state.curruntcontent)))
+            })
         }
         catch (err) {
             console.log(err)

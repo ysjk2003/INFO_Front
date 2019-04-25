@@ -81,10 +81,10 @@ class Post extends Component {
 
     onClick = async (e) => {
         const { title, editorState, category } = this.state
-        if (title === '') {
+        if (!title) {
             alert("제목을 작성해 주세요!")
         }
-        else if (editorState === '') {
+        else if (editorState.getCurrentContent().getPlainText() === '') {
             alert("본문을 작성해 주세요!!")
         }
         else {
