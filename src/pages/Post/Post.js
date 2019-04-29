@@ -32,7 +32,7 @@ class Post extends Component {
             alert('로그인을 해주세요!')
             this.props.history.push('/')
         }
-        if(this.props.location.state){
+        if(this.props.location.state.title){
             this.setState({
                 title: this.props.location.state.title,
                 category: this.props.location.state.category
@@ -59,7 +59,7 @@ class Post extends Component {
 
     uploadImageCallBack = async (file) => {
         try{
-            const response = await axios.post('http://infodsm.club:5000/image',{
+            const response = await axios.get('http://infodsm.club:5000/image',{
                 headers: { Authorization: this.jwt }
             },
             {
