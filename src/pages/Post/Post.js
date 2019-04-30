@@ -97,7 +97,7 @@ class Post extends Component {
                     headers: { Authorization: this.jwt }
                 });
                 alert('글이 저장되었습니다.')
-                this.props.history.push('/curriculum')
+                this.props.history.go(-1)
             }
             catch (err) {
                 console.log(err)
@@ -126,7 +126,7 @@ class Post extends Component {
                 headers: { Authorization: this.jwt }
             });
             alert('글이 수정되었습니다.');
-            this.props.history.push('/curriculum')
+            this.props.history.go(-1)
             console.log(this.state.editorState)
         }
         catch(err) {
@@ -137,6 +137,9 @@ class Post extends Component {
                     localStorage.clear();
                     this.props.history.push('/')
                 }
+                else if (err.response.status === 403) {
+                    alert('권한이 없습니다.')
+                }
             }
             else {
                 alert('오류가 발생하였습니다.')
@@ -146,7 +149,7 @@ class Post extends Component {
 
     render() {
         const { editorState } = this.state;
-        if(window.location.href === "http://localhost:3000/Posting/modify") {
+        if(window.location.href === "http://infodsm.club/Posting/modify") {
             return (
                 <div>
                     <div className="wrapper-editor">

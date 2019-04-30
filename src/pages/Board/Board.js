@@ -82,7 +82,7 @@ class Board extends Component {
                 headers: { Authorization: this.jwt }
             });
             alert("게시글이 삭제되었습니다.")
-            window.location.reload();
+            this.getTitle()
         }
         catch (err) {
             console.log(err)
@@ -91,6 +91,9 @@ class Board extends Component {
                     alert('세션이 만료되었습니다.')
                     localStorage.clear();
                     this.props.history.push('/')
+                }
+                else if (err.response.status === 403) {
+                    alert("권한이 없습니다.")
                 }
             }
             else {

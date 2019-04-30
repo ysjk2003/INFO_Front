@@ -13,7 +13,7 @@ class Assignment extends Component {
 
     componentWillMount() {
         alert('신입부원 모집기간이 아닙니다.')
-        this.props.history.push('/')
+        this.props.history.go(-1)
     }
 
     handleChange = (e) => {
