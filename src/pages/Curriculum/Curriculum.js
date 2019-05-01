@@ -22,25 +22,13 @@ class Curriculum extends Component {
             <div>
                 <div className="Sub">
                     <div className="C">
-                        <Link to={{
-                            pathname: "/curriculum/c",
-                            state: {
-                                category: 'C'
-                            }}}><img src={c} alt="c" name="c"/></Link>
+                        <Link to={"curriculum/C"}><img src={c} alt="c" name="c"/></Link>
                     </div>
                     <div className='Python'>
-                        <Link to={{
-                            pathname:"/curriculum/python",
-                            state: {
-                                category: 'Python'
-                            }}}><img src={python} alt="python" name="python"/></Link>
+                        <Link to={"curriculum/Python"}><img src={python} alt="python" name="python"/></Link>
                     </div>
                     <div className="Network">
-                        <Link to={{
-                            pathname:"/curriculum/network",
-                            state: {
-                                category: 'Network'
-                            }}}><img src={network} alt="network" name="network"/></Link>
+                        <Link to={"/curriculum/Network"}><img src={network} alt="network" name="network"/></Link>
                     </div>
                 </div>
             </div>

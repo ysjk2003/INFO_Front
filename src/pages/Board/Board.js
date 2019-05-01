@@ -31,8 +31,9 @@ class Board extends Component {
             this.props.history.push('/')
         }
         this.setState({
-            category: this.props.location.state.category
+            category: this.props.match.params.category
         })
+        console.log(this.props.match.params.category)
     }
 
     componentDidMount() {

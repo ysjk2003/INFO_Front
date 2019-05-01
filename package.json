@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "PORT=80 cross-env NODE_PATH=src react-scripts build",
+    "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
