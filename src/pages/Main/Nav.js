@@ -26,14 +26,6 @@ class Nav extends Component {
         })
     }
 
-    componentDidMount() {
-        window.addEventListener('beforeunload', this.handleLeavePage)
-    }
-
-    handleLeavePage = (e) => {
-        localStorage.clear()
-    }
-
     componentDidUpdate(prevProps, prevState) {
         if(this.props.login !== prevProps.login) {
             this.setState({
