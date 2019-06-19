@@ -53,3 +53,26 @@
 .Content {
     color: #b2b2b2;
 }
+
+@media screen and (max-width: 767px) {
+    .Board-wrapper {
+        display: inline;
+    }
+
+    .Board {
+        display: inline;
+    }
+
+    .Main {
+        width: 90%;
+        border-left: none;
+    }
+
+    .Category {
+        height: auto;
+    }
+
+    .rdw-editor-wrapper {
+        width: auto;
+    }
+}
