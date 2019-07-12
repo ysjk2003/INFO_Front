@@ -15,7 +15,6 @@ class LoginContainer extends Component {
 
     onClick = async (e) => {
         e.preventDefault();
-        console.log(this)
         if (this.state.id === ''){ 
             alert("아이디를 입력하세요")
         }
