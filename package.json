@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "draft-convert": "^2.1.4",
     "draft-js": "^0.10.5",
     "draftjs-to-html": "^0.8.4",
