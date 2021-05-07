@@ -7,7 +7,7 @@
     "draft-convert": "^2.1.4",
     "draft-js": "^0.10.5",
     "draftjs-to-html": "^0.8.4",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "html-to-draftjs": "^1.4.0",
     "immutable": "^4.0.0-rc.12",
     "js-yaml": "^3.13.1",
