@@ -11,7 +11,7 @@
     "html-to-draftjs": "^1.4.0",
     "immutable": "^4.0.0-rc.12",
     "js-yaml": "^3.13.1",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
